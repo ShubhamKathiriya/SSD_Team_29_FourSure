@@ -2,36 +2,37 @@
 var DEFAULT_COLOUR = 0;
 var cell_OUTLINE_WEIGHT = 5;
 var cell_DEFAULT_COLOUR = 222;
+var CELL_INSIDE_COLOUR = 255; /// white colour
 var TOTAL_PIECE = 9;
-var CELL_RADIUS = 10;
-
+var CELL_RADIUS = 40;
+var GAME_BOARD;
 
 function create_board(){
 
-  var cell_1 = new cell ( 0 , 0 ,300);
-  var cell_2 = new cell ( 1 , 150 ,300);
-  var cell_3 = new cell ( 2 , 300 ,300);
-  var cell_4 = new cell ( 3 , 50 ,250);
-  var cell_5 = new cell ( 4 , 150 ,250);
-  var cell_6 = new cell ( 5 , 250 ,250);
-  var cell_7 = new cell ( 6 , 100 , 200);
-  var cell_8 = new cell ( 7 , 150, 200);
-  var cell_9 = new cell ( 8 , 200 , 200);
-  var cell_10 = new cell ( 9 , 0, 150);
-  var cell_11 = new cell (10, 50, 150);
-  var cell_12 = new cell (11 , 100, 150);
-  var cell_13 = new cell (12, 200 , 150);
-  var cell_14 = new cell (13 , 250,150);
-  var cell_15 = new cell (14 , 300 , 150);
-  var cell_16 = new cell (15 , 100 , 100);
-  var cell_17 = new cell (16 , 150 , 100);
-  var cell_18 = new cell (17, 200 , 100);
-  var cell_19 = new cell (18 , 50, 50);
-  var cell_20 = new cell (19 , 150 , 50 );
-  var cell_21 = new cell (20 , 250 , 50);
-  var cell_22 = new cell (21 , 0 , 0);
-  var cell_23 = new cell ( 22, 150, 0 );
-  var cell_24 = new cell ( 23 , 300 ,0 );
+  var cell_1 = new cell ( 0 , 100 ,100);
+  var cell_2 = new cell ( 1 , 550 ,100);
+  var cell_3 = new cell ( 2 , 1000 ,100);
+  var cell_4 = new cell ( 3 , 250 ,250);
+  var cell_5 = new cell ( 4 , 550 ,250);
+  var cell_6 = new cell ( 5 , 850 ,250);
+  var cell_7 = new cell ( 6 , 400 , 400);
+  var cell_8 = new cell ( 7 , 550, 400);
+  var cell_9 = new cell ( 8 , 700 , 400);
+  var cell_10 = new cell ( 9 , 100, 550);
+  var cell_11 = new cell (10, 250, 550);
+  var cell_12 = new cell (11 , 400, 550);
+  var cell_13 = new cell (12, 700 , 550);
+  var cell_14 = new cell (13 , 850,550);
+  var cell_15 = new cell (14 , 1000 , 550);
+  var cell_16 = new cell (15 , 400 , 700);
+  var cell_17 = new cell (16 , 550 , 700);
+  var cell_18 = new cell (17, 700 , 700);
+  var cell_19 = new cell (18 , 250, 850);
+  var cell_20 = new cell (19 , 550 , 850 );
+  var cell_21 = new cell (20 , 850 , 850);
+  var cell_22 = new cell (21 , 100 , 1000);
+  var cell_23 = new cell ( 22, 550 , 1000 );
+  var cell_24 = new cell ( 23 , 1000 ,1000 );
 
 
   cell_1.add_neightbours(cell_2);
@@ -285,17 +286,13 @@ class cell{
     this.horizontal_cell.push(horizontal_cell_number);
   }
 
-  drawCircles = () => {
-    fill(220);
-    strokeWeight(0);
-    circle(this.x_cordinate, this.y_cordinate, CELL_RADIUS+10);
-}
-
   display = () =>{
     
     strokeWeight(cell_OUTLINE_WEIGHT);
     stroke(cell_DEFAULT_COLOUR);
+    fill(CELL_INSIDE_COLOUR);
     circle(this.x_cordinate, this.y_cordinate, CELL_RADIUS);
+    
 
   }
 
@@ -336,96 +333,75 @@ class Board{
 
 ///////////////////////////////////
 
-var BOARD;
 
-function createPage(){
+function create_game_board(){
 
   console.log("create page inoked!!!");
 
   noFill()
-  stroke(220);
   strokeWeight(10);
-  square(100,100,600,10);
-  square(200,200,400,10);
-  square(300,300,200,10);
+  stroke(220);
 
- 
-  line(400, 100, 400, 300);
-  line(400, 500, 400, 700);
-  line (100, 400, 300 ,400);
-  line (500, 400, 700, 400);
+  square(100 ,100, 900,10);
+  square(250,250,600,10);
+  square(400,400,300,10);
 
-  stroke(150);
-  strokeWeight(3);
-  square(100,100,600,10);
-  square(200,200,400,10);
-  square(300,300,200,10);
-  line(400, 100, 400, 300);
-  line(400, 500, 400, 700);
-  line (100, 400, 300 ,400);
-  line (500, 400, 700, 400);
+  line(550 , 100, 550, 400);
+  line(100 , 550, 400, 550);
+  line(700 , 550, 1000, 550);
+  line(550 , 700, 550, 1000);
 
-  BOARD.all_cell.forEach( (cell) => {
+  GAME_BOARD.all_cell.forEach( (cell) => {
     cell.display();
   })
 }
 
-
-function updateBoard(){
-
-  BOARD.all_cell.forEach( (spot) => {
-    spot.cir;
-  })
-
-  strokeWeight(10);
-  noFill()
-  stroke(220);
-
-  square(100,100,600,10);
-  square(200,200,400,10);
-  square(300,300,200,10);
-
-  line(400, 100, 400, 300);
-  line(400, 500, 400, 700);
-  line (100, 400, 300 ,400);
-  line (500, 400, 700, 400);
-
-  stroke(150);
-  strokeWeight(3);
-  square(100,100,600,10);
-  square(200,200,400,10);
-  square(300,300,200,10);
-  line(400, 100, 400, 300);
-  line(400, 500, 400, 700);
-  line (100, 400, 300 ,400);
-  line (500, 400, 700, 400);
-
-
-}
 
 function setup() {
-  var canvas = createCanvas(800, 800);
-  canvas.id('canvas');
-  BOARD = new Board();
-  console.log("canvas invoke!!");
-  createPage();
 
-
-}
-
-function draw() {
+  var canvas = createCanvas(1200, 1200); // size of board
   background(50);
-  updateBoard();
-  BOARD.all_cell.forEach( (cell) => {
-    cell.display();
-  })
+
+  canvas.id('canvas');
+  GAME_BOARD = new Board();
+  console.log("canvas invoke!!");
+  create_game_board();
+
+
 }
 
-function keyPressed(){
-  /* Nothing */
-}
+
+
 
 
 function mouseClicked(){
-  clicked(BOARD);
+  clicked(GAME_BOARD);
 }
+
+
+function createHeadings() {
+  // Create left heading element
+  var leftHeading = document.createElement('h1');
+  leftHeading.textContent = "Left Heading";
+  leftHeading.classList.add('text-3xl', 'font-extrabold', 'text-dark', 'md:text-5xl', 'lg:text-6xl', 'text-center', 'py-4');
+  leftHeading.style.float = 'left';
+  leftHeading.style.margin = '10px';
+
+  // Create right heading element
+  var rightHeading = document.createElement('h1');
+  rightHeading.textContent = "Right Heading";
+  rightHeading.classList.add('text-3xl', 'font-extrabold', 'text-dark', 'md:text-5xl', 'lg:text-6xl', 'text-center', 'py-4');
+  rightHeading.style.float = 'right';
+  rightHeading.style.margin = '10px';
+
+  // Get the canvas div by its ID
+  var canvasDiv = document.getElementById('canvas');
+
+  // Append the headings to the canvas div
+  canvasDiv.appendChild(leftHeading);
+  canvasDiv.appendChild(rightHeading);
+}
+
+// Call the function to create the headings
+createHeadings();
+

@@ -1,3 +1,23 @@
-/* body{
-    background-color: aqua;
-} */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+.container {
+    display: flex;
+}
+
+.heading {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+#canvas {
+    flex: 2;
+    /* display: block; */
+    margin : 150px auto auto auto;
+}
+  
+#spot {
+    box-shadow: 10 10 10 10;
+} 
