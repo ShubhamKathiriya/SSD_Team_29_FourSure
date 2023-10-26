@@ -370,38 +370,27 @@ function setup() {
 
 }
 
+function mouseClicked() {
+  // Loop through all cells and check if the mouse click is inside any of them
+  for (let i = 0; i < GAME_BOARD.all_cell.length; i++) {
+    let cell = GAME_BOARD.all_cell[i];
+    let d = dist(mouseX, mouseY, cell.x_cordinate, cell.y_cordinate);
+    if (d < CELL_RADIUS / 2) {
+      console.log(`Clicked on cell ${cell.cell_number}`);
+      // handle piece logicc
+      handleCellClick(cell);
+    }
+  }
+}
 
+function handleCellClick(clickedCell) {
+  // Add your logic here to handle the click event
 
-
-
-function mouseClicked(){
-  clicked(GAME_BOARD);
+  console.log(`Handling click for cell ${clickedCell.cell_number}`);
+  
+  clickedCell.player_colour = color(255, 0, 0); 
+  redraw(); // Redraw the canvas to reflect the changes
 }
 
 
-function createHeadings() {
-  // Create left heading element
-  var leftHeading = document.createElement('h1');
-  leftHeading.textContent = "Left Heading";
-  leftHeading.classList.add('text-3xl', 'font-extrabold', 'text-dark', 'md:text-5xl', 'lg:text-6xl', 'text-center', 'py-4');
-  leftHeading.style.float = 'left';
-  leftHeading.style.margin = '10px';
-
-  // Create right heading element
-  var rightHeading = document.createElement('h1');
-  rightHeading.textContent = "Right Heading";
-  rightHeading.classList.add('text-3xl', 'font-extrabold', 'text-dark', 'md:text-5xl', 'lg:text-6xl', 'text-center', 'py-4');
-  rightHeading.style.float = 'right';
-  rightHeading.style.margin = '10px';
-
-  // Get the canvas div by its ID
-  var canvasDiv = document.getElementById('canvas');
-
-  // Append the headings to the canvas div
-  canvasDiv.appendChild(leftHeading);
-  canvasDiv.appendChild(rightHeading);
-}
-
-// Call the function to create the headings
-createHeadings();
 

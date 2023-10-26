@@ -21,3 +21,14 @@ html, body {
 #spot {
     box-shadow: 10 10 10 10;
 } 
+
+.player-container {
+    width: 50%;
+    float: left;
+}
+
+.player {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+}
