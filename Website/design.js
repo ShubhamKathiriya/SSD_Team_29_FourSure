@@ -7,6 +7,19 @@ var TOTAL_PIECE = 9;
 var CELL_RADIUS = 40;
 var GAME_BOARD;
 
+var morrish_man = 9
+
+var player_one_available = 5;
+var player_two_available = 2;
+var player_one_out = 4;
+var player_two_out = 7;
+
+player_one_avail_piece();
+player_one_out_piece();
+player_two_avail_piece();
+player_two_out_piece();
+
+
 function create_board(){
 
   var cell_1 = new cell ( 0 , 100 ,100);
@@ -331,7 +344,7 @@ class Board{
 }
 
 
-///////////////////////////////////
+// Creattion of board
 
 
 function create_game_board(){
@@ -370,6 +383,49 @@ function setup() {
 
 }
 
+
+
+
+// player 1 html piece 
+
+function player_one_avail_piece(){
+
+  document.getElementById('player_one_remaining_piece').innerHTML = `<h1 class="mt-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white"><mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Remaining Piece: </mark></h1>`
+
+  for(let i = 0; i<player_one_available; i++)
+    document.getElementById('player_one_remaining_piece').innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" class="player_one_colour" height="2em" viewBox="0 0 320 512"><style>svg{fill:#11ff00}</style><path d="M215.5 224c29.2-18.4 48.5-50.9 48.5-88c0-57.4-46.6-104-104-104S56 78.6 56 136c0 37.1 19.4 69.6 48.5 88H96c-17.7 0-32 14.3-32 32c0 16.5 12.5 30 28.5 31.8L80 400H240L227.5 287.8c16-1.8 28.5-15.3 28.5-31.8c0-17.7-14.3-32-32-32h-8.5zM22.6 473.4c-4.2 4.2-6.6 10-6.6 16C16 501.9 26.1 512 38.6 512H281.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L256 432H64L22.6 473.4z"/></svg>`
+
+}
+
+function player_one_out_piece (){
+  // console.log("kokoko");
+  document.getElementById('player_out_one_piece').innerHTML = `<h1 class="mt-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white"><mark class="px-2 text-white bg-red-700 rounded dark:bg-blue-500">Out Piece: </mark></h1>`
+
+  for(let i = 0; i<player_one_out; i++)
+    document.getElementById('player_out_one_piece').innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" class="player_one_colour" height="2em" viewBox="0 0 320 512"><style>svg{fill:#11ff00}</style><path d="M215.5 224c29.2-18.4 48.5-50.9 48.5-88c0-57.4-46.6-104-104-104S56 78.6 56 136c0 37.1 19.4 69.6 48.5 88H96c-17.7 0-32 14.3-32 32c0 16.5 12.5 30 28.5 31.8L80 400H240L227.5 287.8c16-1.8 28.5-15.3 28.5-31.8c0-17.7-14.3-32-32-32h-8.5zM22.6 473.4c-4.2 4.2-6.6 10-6.6 16C16 501.9 26.1 512 38.6 512H281.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L256 432H64L22.6 473.4z"/></svg>`
+}
+
+
+
+
+function player_two_avail_piece(){
+
+  document.getElementById('player_two_remaining_piece').innerHTML = `<h1 class="mt-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white"><mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Remaining Piece: </mark></h1>`
+
+  for(let i = 0; i<player_two_available; i++)
+    document.getElementById('player_two_remaining_piece').innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" class="player_two_colour" height="2em" viewBox="0 0 320 512"><style>svg{fill:#005eff}</style><path d="M215.5 224c29.2-18.4 48.5-50.9 48.5-88c0-57.4-46.6-104-104-104S56 78.6 56 136c0 37.1 19.4 69.6 48.5 88H96c-17.7 0-32 14.3-32 32c0 16.5 12.5 30 28.5 31.8L80 400H240L227.5 287.8c16-1.8 28.5-15.3 28.5-31.8c0-17.7-14.3-32-32-32h-8.5zM22.6 473.4c-4.2 4.2-6.6 10-6.6 16C16 501.9 26.1 512 38.6 512H281.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L256 432H64L22.6 473.4z"/></svg>`
+
+}
+
+function player_two_out_piece (){
+  // console.log("kokoko");
+  document.getElementById('player_out_two_piece').innerHTML = `<h1 class="mt-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white"><mark class="px-2 text-white bg-red-700 rounded dark:bg-blue-500">Out Piece: </mark></h1>`
+
+  for(let i = 0; i<player_two_out; i++)
+    document.getElementById('player_out_two_piece').innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" class="player_two_colour" height="2em" viewBox="0 0 320 512"><style>svg{fill:#005eff}</style><path d="M215.5 224c29.2-18.4 48.5-50.9 48.5-88c0-57.4-46.6-104-104-104S56 78.6 56 136c0 37.1 19.4 69.6 48.5 88H96c-17.7 0-32 14.3-32 32c0 16.5 12.5 30 28.5 31.8L80 400H240L227.5 287.8c16-1.8 28.5-15.3 28.5-31.8c0-17.7-14.3-32-32-32h-8.5zM22.6 473.4c-4.2 4.2-6.6 10-6.6 16C16 501.9 26.1 512 38.6 512H281.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L256 432H64L22.6 473.4z"/></svg>`
+}
+
+//
 function mouseClicked() {
   // Loop through all cells and check if the mouse click is inside any of them
   for (let i = 0; i < GAME_BOARD.all_cell.length; i++) {
