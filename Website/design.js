@@ -16,7 +16,7 @@ var flip2 = '#CCCCFF';
 /*
   =============  PIECE VARIABLE   ===============
 */
-var TOTAL_PIECE = 4;
+var TOTAL_PIECE = 9;
 
 var player_one_available = 9;
 var player_two_available = 9;
